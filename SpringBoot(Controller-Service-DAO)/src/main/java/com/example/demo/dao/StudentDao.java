@@ -1,11 +1,19 @@
 package com.example.demo.dao;
 import com.example.demo.Student;
+import java.util.*;
 import org.springframework.stereotype.Component;
 
 
 public interface StudentDao {
 
-    Student getById(Integer studentId) ;
+    List<Student> getByAll();
 
-    String insertStudent(String name);
+    Student getById(Integer id);
+
+    String insertStudent(Integer id,String name,Integer age);
+
+    String deleteById(Integer id);
+
+    String updateStudent(Integer id,String name,Integer age,Integer orgId);
+
 }

@@ -1,0 +1,154 @@
+*{
+    font: bold 24px 微軟正黑體 ,cursive;
+    /*border: solid 1px red;*/
+    position: relative;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: bisque;
+
+}
+h1{
+    font-size: 40px;
+    background-color: whitesmoke;
+    color: #6d6e70;
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 10px;
+}
+
+#titleLine{
+    border: solid 4px #ffc168;
+    background-color: #ffc168;
+}
+.crudBoard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.crudButtonBoard{
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: #ffc168;
+}
+.menuButton{
+    display: inline-block;
+    padding: 10px 20px 10px 20px;
+    background-color: #ffc168;
+    color: #6d6e70;
+    border: none;
+    border-bottom: solid 8px #ef9421;
+    border-radius: 8px;
+    width: 275px;
+}
+.menuButton:hover{
+    color: #ffc168;
+    background-color: #6d6e70;
+    cursor: pointer;
+}
+.submitButton{
+    margin-left: 40%;
+    margin-top: 10px;
+    padding: 10px 30px;
+    background-color: #ffc168;
+    color: #6d6e70;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+}
+.submitButton:hover{
+    color: floralwhite;
+    background-color: #ef9421;
+    cursor: pointer;
+}
+/*當按鈕為disabled=true的狀態時套用*/
+.submitButton[disabled]{
+    color: #ef9421;
+    background-color: #ffc168;
+    cursor: default;
+}
+
+
+
+.editButton , .deleteButton{
+    padding: 4px 12px;
+    background-color: #ffc168;
+    color: #f57242;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.editButton:hover , .deleteButton:hover{
+    color: floralwhite;
+    background-color: #f57242;
+    cursor: pointer;
+}
+
+.crudActionBoard{
+    margin-bottom: 20px;
+    background-color: #fff9ea;
+    width: 560px;
+    height: 600px;
+}
+
+.idClass , .nameClass , .ageClass{
+    color: #6d6e70;
+    margin: 40px 0px 20px 0px;
+    transform: translate(20%, 0%);
+}
+
+#id , #name , #age{
+    border: solid 2px #6d6e70;
+    border-radius: 2px;
+    color: #0389ff;
+    padding: 5px 10px;
+}
+/* 預設input會跟著最大最小值來控制框框長度 , 所以再添加一個attr來改變框框長度*/
+input[data-n="ageInput"]{
+    width: 276px;
+}
+table,th{
+    border: dotted 2px #ef9421;
+    border-collapse: collapse;
+}
+
+table{
+    width: 100%;
+    text-align: left;
+}
+th{
+    background-color: #ffc168;
+    color: #0389ff;
+    padding: 5px;
+}
+tr{
+    border-bottom: dotted 2px #ef9421;
+    background-color: #fff9ea;
+    color: #6d6e70;
+}
+td{
+    padding: 5px;
+}
+
+.needKeyIn{
+    font-size: 16px;
+    color: orangered;
+}
+
+#msg{
+    color: orangered;
+    font-size: 16px;
+}
+
+#resTitle{
+    margin-bottom: -10px;
+}
+
+.updateMargin{
+    margin-left: 20%;
+}

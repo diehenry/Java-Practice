@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" >
+<head>
+    <meta charset="UTF-8">
+    <title>Hello AngularJS</title>
+    <script src="js/angular.min.js" type="text/javascript"></script>
+    <script src="js/myAngular.js" type="text/javascript"></script>
+    <link href="css/crud.css" rel="stylesheet">
+    <!--  解決跨瀏覽器顯示問題      -->
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+<body ng-app="app">
+<form name="myForm">
+    <h1>CRUD<hr id="titleLine"></h1>
+    <div class="container">
+        <div ng-controller="ctrl" ng-cloak class="ng-cloak">
+            <div class="crudBoard">
+                <div class="crudButtonBoard">
+                    <input type="button" name="create" class="menuButton" value="新增功能" ng-click="isCreate()">
+                    <input type="button" name="query" class="menuButton" value="查詢功能" ng-click="isQuery()">
+<!--                    <input type="button" name="delete" class="menuButton" value="刪除功能" ng-click="isDelete()">-->
+<!--                    <input type="button" name="update" class="menuButton" value="修改功能" ng-click="isUpdate()">-->
+
+                </div>
+                <div class="crudActionBoard">
+                    <div class="idClass" ng-show="isShowId">ID:<br>
+                        <input type="number" ng-model="id" id="id" name="id" autocomplete="off"
+                               placeholder="Key in id..." min="1" required/>
+                        <p class="needKeyIn" ng-show="myForm.id.$invalid">*id必須輸入 且 *id必須>=1 </p>
+                    </div>
+                    <div class="nameClass" ng-show="isShowName">NAME:<br>
+                        <input type="text" ng-model="name" id="name" name="name" autocomplete="off"
+                               placeholder="Key in name..." maxlength="49" required/>
+                        <p class="needKeyIn" ng-show="myForm.name.$invalid">*name必須輸入</p>
+                    </div>
+                    <div class="ageClass" ng-show="isShowAge">AGE:<br>
+                        <input type="number" data-n="ageInput" ng-model="age" id="age" name="age" autocomplete="off"
+                               placeholder="1~200" min="1" max="200" required />
+                        <p class="needKeyIn" ng-show="myForm.age.$invalid">*age必須輸入 且 *age必須介於1~200</p>
+                    </div>
+                    <span ng-switch="num">
+                            <span ng-switch-when=1>
+                                <input type="button" class="submitButton" value="新增"
+                                       ng-click="addData(id,name,age)"
+                                       ng-disabled="(myForm.id.$invalid || myForm.name.$invalid || myForm.age.$invalid)">
+                            </span>
+                            <span ng-switch-when=2>
+                                <input type="button" class="submitButton" value="查詢"
+                                       ng-click="queryData(id)" ng-disabled="myForm.id.$invalid">
+                            </span>
+                            <span ng-switch-when=3>
+                                    <input type="button" class="submitButton updateMargin" value="更新"
+                                           ng-click="updateData(id,name,age)"
+                                           ng-disabled="(myForm.id.$invalid || myForm.name.$invalid || myForm.age.$invalid)">
+                                    <input type="button" class="submitButton updateMargin" value="取消"
+                                           ng-click="cancelData()">
+                            </span>
+                            <span ng-switch-default>
+                                <input type="button" class="submitButton" value="無" disabled="true">
+                            </span>
+                        </span>
+                </div>
+                <p id="resTitle">Response:</p>
+                <p><strong id="msg">{{msg}}</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>編號</th>
+                            <th>名稱</th>
+                            <th>年齡</th>
+                            <th colspan="2">功能</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="list in lists | filter:id | filter:name | filter:age">
+                            <td>{{list.id}}</td>
+                            <td>{{list.name}}</td>
+                            <td>{{list.age}}</td>
+                            <td colspan="2">
+                                <input type="button" class="editButton" value="編輯" ng-click="isEdit(list.id,list.name,list.age)">
+                                <input type="button" class="deleteButton" value="X" ng-click="deleteData(list.id)">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+</body>
+</html>

@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfiguration {
 
-    // 連線到 test2 資料庫的 DataSource 和 NamedParameterJdbcTemplate
+    // 連線到 myjdbc 資料庫的 DataSource 和 NamedParameterJdbcTemplate
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.myjdbc")
     public DataSource myjdbcDataSource() {
